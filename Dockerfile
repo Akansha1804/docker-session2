@@ -1,6 +1,7 @@
-FROM node:12-alpine
+FROM node:8.12-alpine
 RUN apk add --no-cache python g++ make
+EXPOSE 8080
 WORKDIR /app
 COPY . .
-RUN yarn install --production
-CMD ["node", "src/index.js"]
+RUN npm install
+CMD ["npm", "start"]
